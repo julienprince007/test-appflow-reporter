@@ -1,0 +1,10 @@
+{
+  "apps":
+  [
+      {
+          "appId": "757a048f",
+          "webBuildCommand": "build-app-flow"
+      }
+
+  ]
+}
