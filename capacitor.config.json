@@ -3,5 +3,5 @@
   "appName": "Quasar App",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
-  "webDir": "src-capacitor/www"
+  "webDir": "src-capacitor/www/"
 }
