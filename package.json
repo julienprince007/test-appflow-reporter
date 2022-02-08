@@ -12,7 +12,7 @@
     "dev-ios": "quasar dev -m cordova -t ios -T ios",
     "dev-android": "quasar dev -m cordova -t ios -T android",
     "build": "quasar build && cp 'src/_redirects' 'www'",
-    "build-app-flow": "npx cap run android",
+    "build-app-flow": "npx cap sync android",
     "build-ios": "cd src-cordova && npm run xml-config-setup -- --env=prod && cd .. && quasar build -m cordova -t ios -T ios",
     "build-android": "cd src-cordova && npm run xml-config-setup -- --env=prod && cd .. && quasar build -m cordova -t ios -T android",
     "codepush-build-ios": "quasar build -m ios --skip-pkg",
