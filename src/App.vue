@@ -16,7 +16,7 @@ export default {
     eventBus.$on('localIssueChange', this.loadNotifications)
 
     if (this.$q.platform.is.capacitor) {
-      document.addEventListener('deviceready', this.initOneSignal, false)
+      //document.addEventListener('deviceready', this.initOneSignal, false)
       this.$cron.start('getAppUpdatesJob')
       this.$SowellProxy.isOnMobile = true
     }
