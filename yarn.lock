@@ -7912,6 +7912,11 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
+onesignal-cordova-plugin@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/onesignal-cordova-plugin/-/onesignal-cordova-plugin-3.0.1.tgz#c8c3be60bf84b7631dd27aece3db9119e65fe9b7"
+  integrity sha512-KpfofwCiDS4c8y0WKhK4oUJ5lHeGdelRPM155rsZeRS3DbKUQCwjoy1ueTx0etypE0m5O36rB24qi8hAoLunbw==
+
 onetime@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/onetime/-/onetime-2.0.1.tgz"
