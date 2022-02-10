@@ -135,6 +135,7 @@ import { useQuasar } from 'quasar'
 import { required, email, minLength } from '@vuelidate/validators'
 import * as packageInfo from '../../package.json'
 import eventBus from 'src/eventBus'
+import OneSignal from 'onesignal-cordova-plugin'
 
 export default {
   inject: ['$helpers', '$DB'],
@@ -263,11 +264,13 @@ export default {
               )
               this.q.localStorage.set('credentials', this.form)
               let currentUserId = String(DECODED_TOKEN.sub)
-              // if (this.q.platform.is.capacitor) {
-              //   window.plugins.OneSignal.setEmail(this.form.email)
-              //   window.plugins.OneSignal.setExternalUserId(currentUserId)
-              //   window.plugins.OneSignal.sendTag('sw_user_id', currentUserId)
-              // }
+              console.log("window", window)
+              console.log("OneSignal", OneSignal)
+              if (this.q.platform.is.capacitor) {
+                window.OneSignal.setEmail(this.form.email)
+                window.OneSignal.setExternalUserId(currentUserId)
+                window.OneSignal.sendTag('sw_user_id', currentUserId)
+              }
 
               eventBus.$emit('userConnected')
               if ('redirect' in this.$route.query) {
