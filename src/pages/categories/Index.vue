@@ -120,8 +120,11 @@ export default {
           timeout: 5000,
           maximumAge: 0
         })
-        this.position = newPosition
-        console.log('this.position', JSON.stringify(this.position))
+        if (newPosition) {
+          this.position = newPosition
+          this.isPositionKnown = true
+          console.log('this.position', JSON.stringify(this.position))
+        }
       }
     },
     goNext(categoryId) {
