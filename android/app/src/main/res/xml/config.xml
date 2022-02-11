@@ -7,7 +7,7 @@
   </feature>
 
   <feature name="OneSignalPush">
-    <param name="android-package" value="com.onesignal.cordova.OneSignalPush"/>
+    <param name="android-package" value="com.plugin.gcm.OneSignalPush"/>
   </feature>
 
   

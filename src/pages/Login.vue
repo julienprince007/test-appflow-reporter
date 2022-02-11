@@ -135,7 +135,6 @@ import { useQuasar } from 'quasar'
 import { required, email, minLength } from '@vuelidate/validators'
 import * as packageInfo from '../../package.json'
 import eventBus from 'src/eventBus'
-import OneSignal from 'onesignal-cordova-plugin'
 
 export default {
   inject: ['$helpers', '$DB'],
