@@ -72,8 +72,8 @@ export default {
     this.setGeolocation()
     this.geoId = await Geolocation.watchPosition({}, (position, err) => {
       this.position = position
-      if (err.code !== error.PERMISSION_DENIED) {
-        window.setTimeout(function () {
+      if (err && err.message !== 'User denied Geolocation') {
+        window.setTimeout(() => {
           this.setGeolocation()
         }, 5000)
       }
