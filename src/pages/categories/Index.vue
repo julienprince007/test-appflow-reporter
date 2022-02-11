@@ -69,7 +69,7 @@ const { setScrollPosition } = scroll
 export default {
   components: { ParentsCategories },
   async mounted() {
-    window.addEventListener('deviceready', this.setGeolocation(), false)
+    this.setGeolocation()
     this.geoId = await Geolocation.watchPosition({}, (position, err) => {
       this.position = position
       if (err.code !== error.PERMISSION_DENIED) {
