@@ -24,7 +24,7 @@ const routes = [
     path: '/ResetPassword',
     component: () => import('layouts/Login'),
     props: (route) => ({ query: route.query.key }),
-    children: [{ path: '/', component: () => import('pages/ResetPassword'), name: 'ResetPassword' }]
+    children: [{ path: '', component: () => import('pages/ResetPassword'), name: 'ResetPassword' }]
   },
   {
     name: 'categories',

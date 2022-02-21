@@ -178,8 +178,8 @@ export default {
   },
   methods: {
     resetPassword() {
-      this.$v.form.email.$touch()
-      if (!this.$v.form.email.$error) {
+      this.v$.form.email.$touch()
+      if (!this.v$.form.email.$error) {
         this.$SowellProxy
           .resetPassword(this.form.email)
           .then(() => {
