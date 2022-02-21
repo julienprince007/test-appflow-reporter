@@ -1,6 +1,6 @@
 {
   "appId": "org.capacitor.quasar.app",
-  "appName": "Quasar App",
+  "appName": "Reporter",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "www"
