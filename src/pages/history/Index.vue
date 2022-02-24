@@ -7,7 +7,12 @@
       v-show="company.showUnscopedHistory"
     >
       <q-tab name="myScope" icon="person_pin_circle" :label="checkUser" />
-      <q-tab name="other" icon="add_circle_outline" @click="resetPlaceId" label="Autre"/>
+      <q-tab
+        name="other"
+        icon="add_circle_outline"
+        @click="resetPlaceId"
+        label="Autre"
+      />
     </q-tabs>
     <div v-if="selectedTab === 'myScope'">
       <q-input
@@ -20,7 +25,7 @@
         class="q-px-md"
       >
         <template v-slot:append>
-          <q-icon v-if="search !== ''" name="close" @click="clearSearch"/>
+          <q-icon v-if="search !== ''" name="close" @click="clearSearch" />
         </template>
       </q-input>
       <div
@@ -67,7 +72,10 @@
     </div>
     <div v-else>
       <filter-issues-history v-model:placeId="placeId"></filter-issues-history>
-      <issues-by-place v-if="placeId" :issues="issuesByPlaceId"></issues-by-place>
+      <issues-by-place
+        v-if="placeId"
+        :issues="issuesByPlaceId"
+      ></issues-by-place>
     </div>
   </q-page>
 </template>
@@ -107,7 +115,7 @@ export default {
       loaded: false,
       search: '',
       placeId: null,
-      issuesByPlaceId: [],
+      issuesByPlaceId: []
     }
   },
   computed: {
@@ -118,16 +126,24 @@ export default {
       notifications: 'reporter/notifications'
     }),
     initializedIssues() {
-     // Show all issues in current_user's scopes except the private ones authored by another user
-      return this.issues.filter((issue) => issue.author.id == this.user.id ? 'meta' in issue : issue.meta.isPrivate == false && 'meta' in issue )
+      // Show all issues in current_user's scopes except the private ones authored by another user
+      return this.issues.filter((issue) =>
+        issue.author.id == this.user.id
+          ? 'meta' in issue
+          : issue.meta.isPrivate == false && 'meta' in issue
+      )
     },
     checkUser() {
-      const DECODED_TOKEN = this.$helpers.decodeToken(this.$store.getters['reporter/token'])
-      return !DECODED_TOKEN.roles.includes('reporter') ? 'Mes signalements' : 'Mon secteur'
+      const DECODED_TOKEN = this.$helpers.decodeToken(
+        this.$store.getters['reporter/token']
+      )
+      return !DECODED_TOKEN.roles.includes('reporter')
+        ? 'Mes signalements'
+        : 'Mon secteur'
     }
   },
   methods: {
-    clearSearch () {
+    clearSearch() {
       this.search = ''
     },
     resetPlaceId() {
@@ -274,7 +290,7 @@ export default {
 
         let criterias = {
           $or: [
-            { '_id': { $regex: searchTerm } },
+            { _id: { $regex: searchTerm } },
             { 'author.firstName': { $regex: searchTerm } },
             { 'author.lastName': { $regex: searchTerm } },
             { 'content.message': { $regex: searchTerm } },
@@ -314,20 +330,22 @@ export default {
         this.resetIssues()
       }
     },
-    async getIssuesByPlaceId (placeId) {
+    async getIssuesByPlaceId(placeId) {
       return this.$SowellProxy
-      .issuesByPlaceId(placeId).then((response) =>{
-        console.log('response api', response)
-        this.issuesByPlaceId = this.formatObjectIssues(response)
-      })
-      .catch((err) => {
-        console.log(err)
-      }).finally(() => {
-        this.$q.loading.hide()
-      })
+        .issuesByPlaceId(placeId)
+        .then((response) => {
+          // console.log('response api', response)
+          this.issuesByPlaceId = this.formatObjectIssues(response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+        .finally(() => {
+          this.$q.loading.hide()
+        })
     },
     formatObjectIssues(issues) {
-      return issues.map(issue => {
+      return issues.map((issue) => {
         let issueItem = {
           meta: {
             id: issue['id'],
@@ -341,7 +359,8 @@ export default {
           },
           content: {
             message: issue['message'],
-            img: issue['img']
+            img: issue['img'],
+            imgsUrls: issue['imgsUrls']
           },
           tracking: {
             status: issue['status'],
@@ -353,7 +372,7 @@ export default {
           },
           fromApi: true
         }
-        return {...issue, ...issueItem}
+        return { ...issue, ...issueItem }
       })
     }
   },

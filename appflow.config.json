@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "appId": "cd57a068",
+      "appId": "fbf011c5",
       "webBuildCommand": "yarn build-app-flow"
     }
   ]

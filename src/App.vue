@@ -6,6 +6,7 @@
 
 <script>
 import eventBus from 'src/eventBus'
+
 export default {
   inject: ['$DB', '$cron'],
   created() {
@@ -141,8 +142,6 @@ export default {
       }
     },
     initOneSignal() {
-      // window['plugins'].OneSignal.setLogLevel({logLevel: 5, visualLevel: 2}) // Uncomment to debug.
-      console.log('use oneSignal')
       window['plugins'].OneSignal.startInit(
         '3f6a1f2d-be99-48ff-b70f-17bfc70e4cc3'
       )

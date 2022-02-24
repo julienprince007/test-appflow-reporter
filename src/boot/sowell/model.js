@@ -61,6 +61,7 @@ export default {
       img: '',
       'has-reasons': false,
       'updated-at': '',
+      'is-cleaning-related':'',
       childs: {
         jsonApi: 'hasMany',
         type: 'categories'
@@ -147,6 +148,7 @@ export default {
       note: '',
       disturbance: '',
       imgs: [],
+      imgsUrls: [],
       'is-private': false,
       'created-at': '',
       'updated-at': '',

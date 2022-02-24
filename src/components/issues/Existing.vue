@@ -67,7 +67,7 @@
       <q-page class="bg-white" :style="'width:' + calcWidth + 'px;'">
         <!-- DETAIL DU SIGNALEMENT -->
         <div
-          class="row justify-center"
+          class="row justify-center q-pa-sm"
           :style="'width:' + calcWidth + 'px;'"
         >
           <q-scroll-area :style="'width:100%; height:' + calcHeight + 'px;'">
@@ -245,10 +245,10 @@
                   <q-icon name="camera_alt" color="primary" />
                 </template>
                 <template v-slot:control>
-                  <div class="row q-pt-sm full-width q-pr-md">
-                    <div class="col text-center" ref="imgContainer">
+                  <div class="row full-width">
+                    <div class="col bg-grey text-center" ref="imgContainer">
                       <q-carousel
-                        class="sw-c-carousel"
+                        class="bg-grey sw-c-carousel"
                         v-if="
                           issue.content.imgsUrls &&
                           Array.isArray(issue.content.imgsUrls) &&
@@ -264,8 +264,13 @@
                           v-for="(imgUrl, index) in issue.content.imgsUrls"
                           :key="index"
                           :name="index"
-                          :img-src="imgUrl"
+                          style="display: inline-block; "
+                        >
+                          <img
+                            :src="imgUrl"
+                            style="height: 100%"
                         />
+                        </q-carousel-slide>
                       </q-carousel>
                       <img
                         v-else
@@ -308,7 +313,7 @@
                       "
                       :sent="chat.author.id === issue.author.id"
                     />
-                    <!-- <q-chat-message
+                    <q-chat-message
                       class="chat-message"
                       v-else-if="chat.file && chat.message === ''"
                       :name="
@@ -333,7 +338,7 @@
                         :label="chat.message"
                       >
                       </q-btn>
-                    </q-chat-message> -->
+                    </q-chat-message>
                     <q-chat-message
                       v-else
                       :name="

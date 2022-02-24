@@ -1,0 +1,76 @@
+@import 'quasar.variables'
+
+// app global css
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url('../statics/font/pacifico.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Arima';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arima Madurai'), local('ArimaMadurai-Regular'), url('../statics/font/arima.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+::-webkit-scrollbar {
+    display: none
+}
+
+body
+  color: $accent
+
+// HEADER
+.sw-brand-login
+  padding: 0px 2px
+  font-family 'Pacifico', cursive
+  font-size 30px
+  opacity: 0.9
+.sw-brand-icon-login
+  height: 34px
+  opacity: 0.9
+.sw-brand
+  padding: 0px 2px
+  font-family 'Pacifico', cursive
+  font-size 22px
+  opacity: 0.9
+.sw-brand-icon
+  height: 26px
+  opacity: 0.9
+.sw-icon
+  height 25px
+  opacity: 0.9
+.sw-title
+  padding: 0px 2px
+  font-family 'Arima'
+  font-size 22px
+  opacity: 0.9
+.sw-title-secondary
+  padding: 0px 2px
+  font-family 'Arima'
+  font-size 18px
+  opacity: 0.9
+.q-toolbar-title
+  text-align center
+  // height: 100%
+.sw-back-btn
+  div>i
+    font-size: 3em!important
+.layout-padding
+  // padding: 1rem 0.5rem
+.q-field-icon
+  margin-right: 10px
+  color: $primary
+
+.q-field-bottom
+  border-top: none!important
+
+.q-tab__label
+  font-size: 12px
+
+.q-textarea .q-field__native
+  padding: 10px
