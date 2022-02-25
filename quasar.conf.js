@@ -32,7 +32,6 @@ module.exports = configure(function (ctx) {
     ],
     supportIE: false,
     build: {
-      distDir: 'www',
       scopeHoisting: true,
       // vueRouterMode: 'history',
       // vueCompiler: true,

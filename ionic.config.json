@@ -2,17 +2,6 @@
   "name": "appflow",
   "integrations": {
     "capacitor": {
-      "appId": "fr.sowell.gardien",
-      "appName": "android",
-      "bundledWebRuntime": false,
-      "npmClient": "yarn",
-      "webDir": "www",
-      "android": {
-        "path": "src-capacitor/android"
-      },
-      "ios": {
-        "path": "src-capacitor/ios"
-      }
     }
   },
   "type": "vue"
