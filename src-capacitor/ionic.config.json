@@ -1,7 +1,0 @@
-{
-  "name": "appflow",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "custom"
-}

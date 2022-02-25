@@ -32,22 +32,24 @@
         <template v-slot:control>
           <div class="self-center full-width no-outline" tabindex="0">
             <q-select
-            outlined
-            @input="$refs['topZone'].$el.childNodes[2].blur()"
-            @blur="v$.selectedAgencyId.$touch"
-            :error="v$.selectedAgencyId.$error"
-            v-model="selectedAgencyId"
-            option-value="value"
-            option-label="label"
-            :options="sortList($helpers.resourcesToFormOptions(agencies))"
-            behavior="menu"
-            label="Agence"
-            ref="topZone"
-            dense
-            class="qSelect"
-            emit-value
-            :display-value="$helpers.findOptionName(agencies,selectedAgencyId)"
-          />
+              outlined
+              @input="$refs['topZone'].$el.childNodes[2].blur()"
+              @blur="v$.selectedAgencyId.$touch"
+              :error="v$.selectedAgencyId.$error"
+              v-model="selectedAgencyId"
+              option-value="value"
+              option-label="label"
+              :options="sortList($helpers.resourcesToFormOptions(agencies))"
+              behavior="menu"
+              label="Agence"
+              ref="topZone"
+              dense
+              class="qSelect"
+              emit-value
+              :display-value="
+                $helpers.findOptionName(agencies, selectedAgencyId)
+              "
+            />
           </div>
         </template>
       </q-field>
@@ -65,22 +67,24 @@
         <template v-slot:control>
           <div class="self-center full-width no-outline" tabindex="0">
             <q-select
-            outlined
-            @input="$refs['zone'].$el.childNodes[2].blur()"
-            @blur="v$.selectedResidenceId.$touch"
-            :error="v$.selectedResidenceId.$error"
-            v-model="selectedResidenceId"
-            option-value="value"
-            option-label="label"
-            :options="sortList($helpers.resourcesToFormOptions(residences))"
-            behavior="menu"
-            label="Résidence"
-            ref="zone"
-            dense
-            class="qSelect"
-            emit-value
-            :display-value="$helpers.findOptionName(residences,selectedResidenceId)"
-          />
+              outlined
+              @input="$refs['zone'].$el.childNodes[2].blur()"
+              @blur="v$.selectedResidenceId.$touch"
+              :error="v$.selectedResidenceId.$error"
+              v-model="selectedResidenceId"
+              option-value="value"
+              option-label="label"
+              :options="sortList($helpers.resourcesToFormOptions(residences))"
+              behavior="menu"
+              label="Résidence"
+              ref="zone"
+              dense
+              class="qSelect"
+              emit-value
+              :display-value="
+                $helpers.findOptionName(residences, selectedResidenceId)
+              "
+            />
           </div>
         </template>
       </q-field>
@@ -98,22 +102,22 @@
         <template v-slot:control>
           <div class="self-center full-width no-outline" tabindex="0">
             <q-select
-            outlined
-            @input="$refs['place'].$el.childNodes[2].blur()"
-            @blur="v$.selectedPlaceId.$touch"
-            :error="v$.selectedPlaceId.$error"
-            v-model="selectedPlaceId"
-            option-value="value"
-            option-label="label"
-            :options="sortPlaces($helpers.resourcesToFormOptions(places))"
-            behavior="menu"
-            label="Adresse"
-            ref="place"
-            dense
-            class="qSelect"
-            emit-value
-            :display-value="$helpers.findOptionName(places,selectedPlaceId)"
-          />
+              outlined
+              @input="$refs['place'].$el.childNodes[2].blur()"
+              @blur="v$.selectedPlaceId.$touch"
+              :error="v$.selectedPlaceId.$error"
+              v-model="selectedPlaceId"
+              option-value="value"
+              option-label="label"
+              :options="sortPlaces($helpers.resourcesToFormOptions(places))"
+              behavior="menu"
+              label="Adresse"
+              ref="place"
+              dense
+              class="qSelect"
+              emit-value
+              :display-value="$helpers.findOptionName(places, selectedPlaceId)"
+            />
           </div>
         </template>
       </q-field>
@@ -130,47 +134,44 @@
         <template v-slot:control>
           <div class="self-center full-width no-outline" tabindex="0">
             <q-select
-            outlined
-            @input="$refs['spot'].$el.childNodes[2].blur()"
-            @blur="v$.selectedSpotId.$touch"
-            :error="v$.selectedSpotId.$error"
-            v-model="selectedSpotId"
-            option-value="value"
-            option-label="label"
-            :options="sortList($helpers.resourcesToFormOptions(spots))"
-            behavior="menu"
-            label="Localisation"
-            ref="spot"
-            dense
-            class="qSelect"
-            emit-value
-            :display-value="$helpers.findOptionName(spots,selectedSpotId)"
-          />
+              outlined
+              @input="$refs['spot'].$el.childNodes[2].blur()"
+              @blur="v$.selectedSpotId.$touch"
+              :error="v$.selectedSpotId.$error"
+              v-model="selectedSpotId"
+              option-value="value"
+              option-label="label"
+              :options="sortList($helpers.resourcesToFormOptions(spots))"
+              behavior="menu"
+              label="Localisation"
+              ref="spot"
+              dense
+              class="qSelect"
+              emit-value
+              :display-value="$helpers.findOptionName(spots, selectedSpotId)"
+            />
           </div>
         </template>
       </q-field>
       <!-- reasons -->
-      <q-field
-        borderless
-        v-if="spots.length && reasons"
-      >
+      <q-field borderless v-if="spots.length && reasons">
         <template v-slot:before>
           <q-icon name="apps" color="primary" />
         </template>
         <template v-slot:control>
           <div class="self-center full-width no-outline" tabindex="0">
             <q-select
-            outlined
-            v-model="selectedPlaceId"
-            option-value="id"
-            option-label="name"
-            :options="reasons"
-            behavior="menu"
-            label="Motif"
-            dense
-            class="qSelect"
-            emit-value
-          />
+              outlined
+              v-model="selectedPlaceId"
+              option-value="id"
+              option-label="name"
+              :options="reasons"
+              behavior="menu"
+              label="Motif"
+              dense
+              class="qSelect"
+              emit-value
+            />
           </div>
         </template>
       </q-field>
@@ -185,14 +186,14 @@
             class="row q-mb-lg full-width q-pr-none"
             v-for="(img, index) in images"
             :key="index"
-            style="border: 1px dotted #d3d3d3;"
+            style="border: 1px dotted #d3d3d3"
           >
             <div
               class="col text-center"
               ref="imgContainer"
-              style="position: relative;"
+              style="position: relative"
             >
-              <img :src="img" style="max-width: 100%;" />
+              <img :src="img" style="max-width: 100%" />
               <q-btn
                 color="negative"
                 round
@@ -278,7 +279,7 @@
         icon="camera_alt"
         size="sm"
         @click="openActionSheet()"
-        style="top: -155px;"
+        style="top: -155px"
         class="buttonHover"
       />
 
@@ -305,10 +306,7 @@
       </q-field>
 
       <!-- Set private -->
-      <q-field
-        borderless
-        v-if="company.showIsPrivate"
-      >
+      <q-field borderless v-if="company.showIsPrivate">
         <template v-slot:before>
           <q-icon name="pan_tool" color="primary" />
         </template>
@@ -322,10 +320,7 @@
           </div>
         </template>
       </q-field>
-      <q-field
-        borderless
-        v-if="forwardIssueHasAttribute('url')"
-      >
+      <q-field borderless v-if="forwardIssueHasAttribute('url')">
         <template v-slot:before>
           <q-icon name="arrow_forward" color="primary" />
         </template>
@@ -352,7 +347,7 @@
           @click="send()"
           :disabled="disableSubmitButton"
           class="q-mt-xl"
-          style="height:60;"
+          style="height: 60"
         >
           <q-icon left size="sm" name="save_alt" />
           <div>Enregistrer</div>
@@ -365,17 +360,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
-import heic2any from "heic2any"
+import heic2any from 'heic2any'
 import useVuelidate from '@vuelidate/core'
 import eventBus from 'src/eventBus'
 const uuidv1 = require('uuid/v1')
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'
 
 export default {
-  inject:['$DB','$helpers'],
+  inject: ['$DB', '$helpers'],
   props: ['category', 'audit'],
   setup() {
-    return { v$: useVuelidate()}
+    return { v$: useVuelidate() }
   },
   mounted() {
     window.addEventListener('deviceready', this.deviceReady(), false)
@@ -432,7 +427,12 @@ export default {
         dismissLabel: 'Annuler'
       },
       issueCategory: null,
-      fieldsToValidate: ['selectedAgencyId', 'selectedResidenceId', 'selectedPlaceId', 'selectedSpotId']
+      fieldsToValidate: [
+        'selectedAgencyId',
+        'selectedResidenceId',
+        'selectedPlaceId',
+        'selectedSpotId'
+      ]
     }
   },
   computed: {
@@ -515,15 +515,18 @@ export default {
       this.images.splice(index, 1)
     },
     shootSuccess(imageData) {
-      if(imageData.toUpperCase().endsWith('.HEIC') || imageData.toUpperCase().endsWith('.HEIF')) {
+      if (
+        imageData.toUpperCase().endsWith('.HEIC') ||
+        imageData.toUpperCase().endsWith('.HEIF')
+      ) {
         fetch(imageData)
           .then((res) => res.blob())
           .then((blob) =>
-              heic2any({
-                  blob,
-                  toType: "image/jpeg",
-                  quality: 1,
-              })
+            heic2any({
+              blob,
+              toType: 'image/jpeg',
+              quality: 1
+            })
           )
           .then((conversionResult) => {
             var reader = new FileReader()
@@ -538,15 +541,23 @@ export default {
       }
     },
     getCheckpointCategory() {
-      console.log("getCheckpointCategory>category")
+      console.log('getCheckpointCategory>category')
       console.dir(this.category)
-      let currentCheckpoint = this.audit.checklist.checkpoints.find(element => parseInt(element.id) === parseInt(this.$route.query.checkpoint))
-      console.log("getCheckpointCategory>currentCheckpoint")
+      let currentCheckpoint = this.audit.checklist.checkpoints.find(
+        (element) =>
+          parseInt(element.id) === parseInt(this.$route.query.checkpoint)
+      )
+      console.log('getCheckpointCategory>currentCheckpoint')
       console.dir(currentCheckpoint)
-      let currentCheckpointHasCategory = currentCheckpoint.hasOwnProperty('category') && currentCheckpoint.category.hasOwnProperty('id') && currentCheckpoint.category.id > 0
-      console.log("getCheckpointCategory>currentCheckpointHasCategory")
+      let currentCheckpointHasCategory =
+        currentCheckpoint.hasOwnProperty('category') &&
+        currentCheckpoint.category.hasOwnProperty('id') &&
+        currentCheckpoint.category.id > 0
+      console.log('getCheckpointCategory>currentCheckpointHasCategory')
       console.dir(currentCheckpointHasCategory)
-      return currentCheckpointHasCategory ? this.categoryById(parseInt(currentCheckpoint.category.id)) : this.category
+      return currentCheckpointHasCategory
+        ? this.categoryById(parseInt(currentCheckpoint.category.id))
+        : this.category
     },
     forwardIssueHasAttribute(info) {
       return (
@@ -561,15 +572,18 @@ export default {
           message: "Aucune agence n'est selectionnée"
         },
         selectedResidenceId: {
-          message: "Aucune résidence n\'existe sur cette agence, veuillez contacter votre service technique"
+          message:
+            "Aucune résidence n'existe sur cette agence, veuillez contacter votre service technique"
         },
         selectedPlaceId: {
-          message: "Aucune adresse n\'existe sur cette residence, veuillez contacter votre service technique"
+          message:
+            "Aucune adresse n'existe sur cette residence, veuillez contacter votre service technique"
         },
         selectedSpotId: {
-          message: "Aucune localisation n\'existe sur cette adresse, veuillez contacter votre service technique"
+          message:
+            "Aucune localisation n'existe sur cette adresse, veuillez contacter votre service technique"
         },
-        defaultMessage: "Merci de compléter les champs en rouge"
+        defaultMessage: 'Merci de compléter les champs en rouge'
       }
     },
     validateField(field) {
@@ -583,7 +597,10 @@ export default {
       }
       let errorsMessage = this.getErrorsMessages()
       this.$q.notify({
-        message: this.$data[fieldsMapping[field]].length < 1 ? errorsMessage[field].message : errorsMessage.defaultMessage,
+        message:
+          this.$data[fieldsMapping[field]].length < 1
+            ? errorsMessage[field].message
+            : errorsMessage.defaultMessage,
         color: 'warning',
         position: 'top'
       })
@@ -639,40 +656,43 @@ export default {
       if (this.forwardIssueHasAttribute('url') && this.toForward) {
         tmpIssue['toForward'] = this.toForward
       }
-      this.$DB.tmpIssues().find({
-        selector: { 
-          message: tmpIssue.message,
-          category: { $eq: tmpIssue.category },
-          spot: { $eq: tmpIssue.spot },
-          report: { $eq: tmpIssue.report }
+      this.$DB
+        .tmpIssues()
+        .find({
+          selector: {
+            message: tmpIssue.message,
+            category: { $eq: tmpIssue.category },
+            spot: { $eq: tmpIssue.spot },
+            report: { $eq: tmpIssue.report }
           }
-        }).then((res) => {
-            if (res.docs.length == 0) {
-              if (this.auditRelated) {
-                tmpIssue.checkpoint = { id: this.$route.query.checkpoint }
-                this.$DB
-                  .tmpReports()
-                  .get(this.$route.query.report)
-                  .then((report) => {
-                    report.issues.push(tmpIssue)
-                    this.$DB
-                      .tmpReports()
-                      .put(report)
-                      .then(() => {
-                        this.$router.go(-1)
-                      })
-                  })
-              } else {
-                this.$DB
-                  .tmpIssues()
-                  .put(tmpIssue)
-                  .then(() => {
-                    this.$router.push({ path: '/categories' })
-                    eventBus.$emit('processQueue')
-                  })
-              }
+        })
+        .then((res) => {
+          if (res.docs.length == 0) {
+            if (this.auditRelated) {
+              tmpIssue.checkpoint = { id: this.$route.query.checkpoint }
+              this.$DB
+                .tmpReports()
+                .get(this.$route.query.report)
+                .then((report) => {
+                  report.issues.push(tmpIssue)
+                  this.$DB
+                    .tmpReports()
+                    .put(report)
+                    .then(() => {
+                      this.$router.go(-1)
+                    })
+                })
+            } else {
+              this.$DB
+                .tmpIssues()
+                .put(tmpIssue)
+                .then(() => {
+                  this.$router.push({ path: '/categories' })
+                  eventBus.$emit('processQueue')
+                })
+            }
           }
-      })
+        })
     },
     sortList(tabOptions) {
       return tabOptions.sort((a, b) => {
@@ -711,6 +731,7 @@ export default {
           this.residences = this.agencies.find(
             (agency) => agency.id === id
           ).residences
+          // console.log('loadAgencyResidences', this.residences)
         } else {
           this.$q.loading.show()
           this.$SowellProxy
@@ -722,6 +743,7 @@ export default {
                   name: residence.name
                 }
               })
+              // console.log('loadAgencyResidences', this.residences)
               this.$q.loading.hide()
             })
         }
@@ -789,7 +811,9 @@ export default {
               .filter(
                 (spot) =>
                   parseInt(spot.categoryId) ===
-                  parseInt(this.categoryBySubcategoryId(this.issueCategory.id).id)
+                  parseInt(
+                    this.categoryBySubcategoryId(this.issueCategory.id).id
+                  )
               )
             this.$q.loading.hide()
           })
@@ -882,7 +906,7 @@ export default {
       }
     },
     spots() {
-      // Automatically select the spot since there is only one available      
+      // Automatically select the spot since there is only one available
       if (this.spots.length === 1) {
         this.selectedSpotId = this.spots[0].id
       }

@@ -1,7 +1,8 @@
 {
   "name": "appflow",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+    }
   },
   "type": "vue"
 }

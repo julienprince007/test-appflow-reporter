@@ -1,7 +1,6 @@
 {
-  "appId": "fr.sowell.gardien",
-  "appName": "SoWell",
-  "bundledWebRuntime": false,
-  "npmClient": "yarn",
-  "webDir": "www"
+  "appId": "reporter.sowellapp.com",
+  "appName": "Reporter",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }

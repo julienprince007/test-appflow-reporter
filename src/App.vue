@@ -6,8 +6,9 @@
 
 <script>
 import eventBus from 'src/eventBus'
+
 export default {
-  inject: ['$DB','$cron'],
+  inject: ['$DB', '$cron'],
   created() {
     this.$DB.initLocal(this.$q.platform.is.capacitor)
     eventBus.$on('processQueue', this.processQueue) // APP:startSync called or issue closed on device or talk added on device or tmpIssue added
@@ -16,7 +17,7 @@ export default {
     eventBus.$on('localIssueChange', this.loadNotifications)
 
     if (this.$q.platform.is.capacitor) {
-      document.addEventListener('deviceready', this.initOneSignal, false)
+      this.initOneSignal()
       this.$cron.start('getAppUpdatesJob')
       this.$SowellProxy.isOnMobile = true
     }
@@ -52,7 +53,6 @@ export default {
     async startSync() {
       var token = this.$store.getters['reporter/token']
       if (token.length) {
-        
         this.$helpers.isTokenValid(token).then(() => {
           this.watchLocalIssuesConflicts()
           this.$DB.initDBSync(
@@ -121,13 +121,13 @@ export default {
               () => {
                 this.notificationsLoading = false
                 if (this.$q.platform.is.capacitor && this.$q.appVisible) {
-                  window.plugins.OneSignal.clearOneSignalNotifications()
+                  window['plugins'].OneSignal.clearOneSignalNotifications()
                 }
               },
               () => {
                 this.notificationsLoading = false
                 if (this.$q.platform.is.capacitor && this.$q.appVisible) {
-                  window.plugins.OneSignal.clearOneSignalNotifications()
+                  window['plugins'].OneSignal.clearOneSignalNotifications()
                 }
               }
             )
@@ -135,16 +135,19 @@ export default {
           () => {
             this.notificationsLoading = false
             if (this.$q.platform.is.capacitor && this.$q.appVisible) {
-              window.plugins.OneSignal.clearOneSignalNotifications()
+              window['plugins'].OneSignal.clearOneSignalNotifications()
             }
           }
         )
       }
     },
     initOneSignal() {
-      // window.plugins.OneSignal.setLogLevel({logLevel: 5, visualLevel: 2}) // Uncomment to debug.
-      window.plugins.OneSignal.startInit('3f6a1f2d-be99-48ff-b70f-17bfc70e4cc3')
-        .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.None)
+      window['plugins'].OneSignal.startInit(
+        '3f6a1f2d-be99-48ff-b70f-17bfc70e4cc3'
+      )
+        .inFocusDisplaying(
+          window['plugins'].OneSignal.OSInFocusDisplayOption.None
+        )
         .handleNotificationReceived((jsonData) => {
           if (this.$store.getters['reporter/token'].length) {
             this.$helpers
@@ -164,7 +167,8 @@ export default {
                         position: 'top',
                         detail:
                           'La demande #' + data.issue + ' a changé de statut',
-                        message: 'La demande #' + data.issue + ' a changé de statut',
+                        message:
+                          'La demande #' + data.issue + ' a changé de statut',
                         actions: [
                           {
                             label: 'Voir',
@@ -225,7 +229,7 @@ export default {
                           message:
                             'La demande #' +
                             data.issue +
-                            ' vient d\'être ajoutée sur votre secteur',
+                            " vient d'être ajoutée sur votre secteur",
                           // optional
                           color: 'primary',
                           // optional; stacks button vertically instead of horizontally (default)

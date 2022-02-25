@@ -69,11 +69,11 @@ const { setScrollPosition } = scroll
 export default {
   components: { ParentsCategories },
   async mounted() {
-    window.addEventListener('deviceready', this.setGeolocation(), false)
+    this.setGeolocation()
     this.geoId = await Geolocation.watchPosition({}, (position, err) => {
       this.position = position
-      if (err.code !== error.PERMISSION_DENIED) {
-        window.setTimeout(function () {
+      if (err && err.message !== 'User denied Geolocation') {
+        window.setTimeout(() => {
           this.setGeolocation()
         }, 5000)
       }
@@ -120,8 +120,11 @@ export default {
           timeout: 5000,
           maximumAge: 0
         })
-        this.position = newPosition
-        console.log('this.position', JSON.stringify(this.position))
+        if (newPosition) {
+          this.position = newPosition
+          this.isPositionKnown = true
+          console.log('this.position', JSON.stringify(this.position))
+        }
       }
     },
     goNext(categoryId) {

@@ -19,7 +19,7 @@ module.exports = configure(function (ctx) {
       'errorHandler',
       'pouchDB',
       'cron',
-      'routerGuards', 
+      'routerGuards',
       'initStoreVM'
     ],
     css: ['app.scss'],
@@ -137,7 +137,8 @@ module.exports = configure(function (ctx) {
       // i18n: 'de' // Quasar language
       config: {
         capacitor: {
-          backButtonExit: ['/login']
+          backButtonExit: ['/login'],
+          iosStatusBarPadding: true
         }
       }
     },
@@ -187,13 +188,14 @@ module.exports = configure(function (ctx) {
         ]
       }
     },
-    cordova: {
+    capacitor: {
       id: 'fr.sowell.gardien',
-      // version: '1.6.2',
+      // (Optional) If not present, will look for package.json > version
+      version: '2.0.0',
       // androidVersionCode: '1006002',
+      // (Optional) If not present, will look for package.json > description
       description:
         "L'application qui permet de signaler facilement les désordres techniques dans un batiment",
-      iosStatusBarPadding: false,
       defaultlocale: 'fr'
     },
     electron: {

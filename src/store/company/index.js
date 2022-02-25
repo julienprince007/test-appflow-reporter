@@ -58,7 +58,7 @@ const actions = {
           showUnscopedHistory: company['show-unscoped-history'],
           forwardIssues: company['forward-issues'],
           categories: response.data
-            .filter((category) => category.childs.length)
+            .filter((category) => category.childs.length && !category['is-cleaning-related'])
             .map((category) => {
               return {
                 id: Math.trunc(category.id),

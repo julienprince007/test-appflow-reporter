@@ -178,8 +178,8 @@ export default {
   },
   methods: {
     resetPassword() {
-      this.$v.form.email.$touch()
-      if (!this.$v.form.email.$error) {
+      this.v$.form.email.$touch()
+      if (!this.v$.form.email.$error) {
         this.$SowellProxy
           .resetPassword(this.form.email)
           .then(() => {
@@ -264,9 +264,9 @@ export default {
               this.q.localStorage.set('credentials', this.form)
               let currentUserId = String(DECODED_TOKEN.sub)
               if (this.q.platform.is.capacitor) {
-                window.plugins.OneSignal.setEmail(this.form.email)
-                window.plugins.OneSignal.setExternalUserId(currentUserId)
-                window.plugins.OneSignal.sendTag('sw_user_id', currentUserId)
+                window['plugins'].OneSignal.setEmail(this.form.email)
+                window['plugins'].OneSignal.setExternalUserId(currentUserId)
+                window['plugins'].OneSignal.sendTag('sw_user_id', currentUserId)
               }
 
               eventBus.$emit('userConnected')

@@ -31,10 +31,10 @@
             <q-input
               type="password"
               v-model="form.password"
-              @change="$v.form.password.$touch"
+              @change="v$.form.password.$touch"
               @blur.stop="$helpers.scrollToElement($refs.top)"
               @keyup.enter="submit"
-              :error="$v.form.password.$error"
+              :error="v$.form.password.$error"
               class="full-width"
             />
           </q-field>
@@ -49,10 +49,10 @@
               ref="pws"
               type="password"
               v-model="form.password_confirmation"
-              @change="$v.form.password_confirmation.$touch"
+              @change="v$.form.password_confirmation.$touch"
               @blur.stop="$helpers.scrollToElement($refs.top)"
               @keyup.enter="submit"
-              :error="$v.form.password_confirmation.$error"
+              :error="v$.form.password_confirmation.$error"
               class="full-width"
             />
           </q-field>
@@ -67,8 +67,12 @@
 
 <script>
 import { required, minLength, sameAs } from 'vuelidate/lib/validators'
+import useVuelidate from '@vuelidate/core'
 
 export default {
+  setup() {
+    return { v$: useVuelidate() }
+  },
   mounted() {
     this.$q.loading.hide()
   },
@@ -112,13 +116,13 @@ export default {
         })
         .catch(() => {
           this.pageLoading = false
-          this.tokenExist = false 
+          this.tokenExist = false
         })
     },
     async submit() {
       this.$q.loading.show({ delay: 0 })
-      this.$v.form.$touch()
-      if (this.$v.form.$error) {
+      this.v$.form.$touch()
+      if (this.v$.form.$error) {
         this.$q.notify({
           message: 'Merci de saisir votre nouveau mot de passe deux fois',
           type: 'warning',

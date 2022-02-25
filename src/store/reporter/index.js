@@ -75,6 +75,7 @@ const actions = {
               })
               promise2 = new Promise((resolve) => {
                 this._vm.$SowellProxy.loadReporterPlaces().then((response) => {
+                  // console.log('response.data', response.data)
                   dispatch('setAgencies', response.data)
                   dispatch('setSpots', response.data)
                   resolve()
@@ -114,32 +115,41 @@ const actions = {
   },
   async setAgencies({ commit }, places) {
     let agencies = []
-    
+    // console.log('places', places)
+
     places.forEach(async (place) => {
-      if(place.residence?.agency?.id) {
-        let agency = agencies.find(
-          (agency) => agency.id === place.residence.agency.id
-        )
-        if (agency === undefined) {
-          agency = place.residence.agency
-          agency.residences = []
-          agencies.push(agency)
-        }
-  
-        let residence = agency.residences.find(
-          (residence) => residence.id === place.residence.id
-        )
-        if (!residence) {
-          residence = place.residence
-          delete residence.agency
-          agency.residences.push(residence)
-        }
-        delete place.residence
-        residence.places.push(place)
-      } 
+      // console.log('place', place.residence)
+
+      let agency = agencies.find(
+        (agency) => Number(agency.id) === Number(place.residence.agency.id)
+      )
+      // console.log('agency', agency)
+      if (agency === undefined) {
+        agency = place.residence.agency
+        agency.residences = []
+        agencies.push(agency)
+      }
+
+      let residence = agency.residences.find(
+        (residence) => Number(residence.id) === Number(place.residence.id)
+      )
+      // console.log('residence', residence)
+
+      if (!residence) {
+        // console.log('mandalo eto ve ?')
+        residence = place.residence
+        delete residence.agency
+        agency.residences.push(residence)
+      }
+      delete place.residence
+      // console.log('push place', place)
+      residence.places.push(place)
+      // console.log('agencies', agencies)
     })
+    // console.log('agencies', agencies)
     commit('SET_AGENCIES', agencies)
   },
+
   async setSpots({ commit }, places) {
     const spots = []
     for (const place of places) {

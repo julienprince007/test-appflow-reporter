@@ -183,8 +183,8 @@ export default {
         Proxy.one("company", company.id)
           .all("categories")
           .get({
-            "fields[categories]": "id,name,img,has-reasons,childs",
-            include: "childs",
+            'fields[categories]': 'id,name,img,has-reasons,is-cleaning-related,childs',
+            include: 'childs'
           })
           .then(
             (response) => {
