@@ -15,7 +15,7 @@
     "capacitor:add:android": "npx cap add android",
     "capacitor:add:ios": "npx cap add ios",
     "build": "quasar build",
-    "ionic:build:before": "yarn capacitor:add:android && yarn capacitor:add:ios",
+    "prebuild": "yarn capacitor:init && yarn capacitor:add:android && yarn capacitor:add:ios",
     "release-init": "yarn config set version-sign-git-tag false && yarn config set version-git-tag false && yarn config set version-commit-hooks false",
     "release": "yarn release-init && yarn version && yarn codepush-deploy && yarn release-finish",
     "release-finish": "git add . && git commit -am $npm_package_version && git tag -a $npm_package_version -m $npm_package_version && git push && git push --tags",
