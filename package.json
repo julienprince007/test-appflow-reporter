@@ -11,7 +11,6 @@
     "dev": "quasar dev",
     "dev-ios": "quasar dev -m cordova -t ios -T ios",
     "dev-android": "quasar dev -m cordova -t ios -T android",
-    "capacitor:init": "npx cap init Reporter reporter.sowellapp.com --web-dir dist/spa",
     "capacitor:add:android": "npx cap add android",
     "capacitor:add:ios": "npx cap add ios",
     "build": "quasar build",

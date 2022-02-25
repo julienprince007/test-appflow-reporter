@@ -1,13 +1,6 @@
 {
-	"appId": "fr.sowell.gardien",
-	"appName": "android",
-	"bundledWebRuntime": false,
-	"npmClient": "yarn",
+	"appId": "reporter.sowellapp.com",
+	"appName": "SoWell",
 	"webDir": "www",
-	"android": {
-		"path": "src-capacitor/android"
-	},
-	"ios": {
-		"path": "src-capacitor/ios"
-	}
+	"bundledWebRuntime": false
 }
