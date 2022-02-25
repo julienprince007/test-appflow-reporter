@@ -4,7 +4,13 @@ const config: CapacitorConfig = {
   appId: 'reporter.sowellapp.com',
   appName: 'Reporter',
   webDir: 'dist/spa',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  android: {
+    path: 'src-capacitor/android'
+  },
+  ios: {
+    path: 'src-capacitor/ios'
+  }
 };
 
 export default config;
