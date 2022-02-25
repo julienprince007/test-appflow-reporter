@@ -1,7 +1,14 @@
 {
   "name": "appflow",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "android": {
+        "path": "src-capacitor/android"
+      },
+      "ios": {
+        "path": "src-capacitor/ios"
+      }
+    }
   },
   "type": "vue"
 }
