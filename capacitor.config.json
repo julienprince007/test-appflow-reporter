@@ -1,6 +1,0 @@
-{
-  "appId": "reporter.sowellapp.com",
-  "appName": "Reporter",
-  "webDir": "dist/spa",
-  "bundledWebRuntime": false
-}

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Reporter</string>
-    <string name="title_activity_main">Reporter</string>
-    <string name="package_name">reporter.sowellapp.com</string>
-    <string name="custom_url_scheme">reporter.sowellapp.com</string>
-</resources>
