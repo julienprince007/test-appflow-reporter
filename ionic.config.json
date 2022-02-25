@@ -4,8 +4,5 @@
     "capacitor": {
     }
   },
-  "scripts": {
-    "ionic:build:before": "yarn capacitor:init && yarn capacitor:add:android && yarn capacitor:add:ios"
-  },
   "type": "vue"
 }
