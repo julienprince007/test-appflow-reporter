@@ -2,7 +2,7 @@
   "apps": [
     {
       "appId": "cd57a068",
-      "webBuildCommand": "quasar build"
+      "webBuildCommand": "yarn appflow:build"
     }
   ]
 }
