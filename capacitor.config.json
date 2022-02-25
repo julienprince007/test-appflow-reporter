@@ -1,7 +1,13 @@
 {
-  "appId": "org.capacitor.quasar.app",
-  "appName": "Reporter",
+  "appId": "fr.sowell.gardien",
+  "appName": "SoWell",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
-  "webDir": "www"
+  "webDir": "www",
+  "android": {
+    "path": "src-capacitor/android"
+  },
+  "ios": {
+    "path": "src-capacitor/android"
+  }
 }

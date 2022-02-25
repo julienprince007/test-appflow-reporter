@@ -3,5 +3,5 @@
   "appName": "SoWell",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
-  "webDir": "www"
+  "webDir": "../www"
 }
