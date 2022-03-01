@@ -1,0 +1,1 @@
+gradle(task: "clean assembleRelease", project_dir: 'src-capacitor/android/')

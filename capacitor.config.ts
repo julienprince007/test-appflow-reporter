@@ -6,10 +6,10 @@ const config: CapacitorConfig = {
   webDir: 'dist/spa',
   bundledWebRuntime: false,
   android: {
-    path: "./src-capacitor/android",
+    path: "src-capacitor/android",
   },
   ios: {
-    path: "./src-capacitor/android"
+    path: "src-capacitor/android"
   }
 };
 
