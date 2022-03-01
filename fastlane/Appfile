@@ -1,6 +1,6 @@
 json_key_file("") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 package_name("") # e.g. com.krausefx.app
-for_lane :build_android_app do
+for_lane :package_build do
   gradle_path("src-capacitor/android")
 end
 
