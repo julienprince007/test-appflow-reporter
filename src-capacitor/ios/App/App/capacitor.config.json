@@ -1,6 +1,12 @@
 {
 	"appId": "reporter.sowellapp.com",
-	"appName": "SoWell",
-	"webDir": "www",
-	"bundledWebRuntime": false
+	"appName": "Reporter",
+	"webDir": "dist/spa",
+	"bundledWebRuntime": false,
+	"android": {
+		"path": "src-capacitor/android"
+	},
+	"ios": {
+		"path": "src-capacitor/ios"
+	}
 }
