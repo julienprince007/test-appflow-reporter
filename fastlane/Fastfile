@@ -13,6 +13,11 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+before_all do
+  ENV["FASTLANE_GRADLE_PROJECT_DIR"] =
+      "src-capacitor/android"
+end
+
 default_platform(:android)
 
 platform :android do

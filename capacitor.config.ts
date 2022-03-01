@@ -9,7 +9,7 @@ const config: CapacitorConfig = {
     path: "src-capacitor/android",
   },
   ios: {
-    path: "src-capacitor/android"
+    path: "src-capacitor/ios"
   }
 };
 
