@@ -2,7 +2,7 @@
   "apps": [
     {
       "appId": "cd57a068",
-      "webBuildCommand": "yarn capacitor:build"
+      "webBuildCommand": "yarn deploy:mobile"
     }
   ]
 }
