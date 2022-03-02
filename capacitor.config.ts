@@ -3,7 +3,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'reporter.sowellapp.com',
   appName: 'Reporter',
-  webDir: 'dist/spa',
+  webDir: 'src-capacitor/www',
   bundledWebRuntime: false,
   android: {
     path: "src-capacitor/android",
