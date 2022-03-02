@@ -1,5 +1,4 @@
 #!/bin/sh
-
 if [[ $CI_PLATFORM = "android" ]] then
   yarn build:android
 fi
