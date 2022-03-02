@@ -1,9 +1,3 @@
 json_key_file("") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 package_name("com.ok") # e.g. com.krausefx.app
-project_dir "src-capacitor/android"
-gradle_path("gradle")
-for_platform :android do
-  project_dir "src-capacitor/android"
-  gradle_path("gradle")
-end
 
