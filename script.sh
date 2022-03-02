@@ -10,4 +10,4 @@ if($CI_PLATFORM=ios) then
   yarn build:ios
 fi
 
-export FASTLANE_LANE_NAME=beta
+env FASTLANE_LANE_NAME="beta"
