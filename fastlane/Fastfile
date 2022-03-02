@@ -21,19 +21,8 @@ end
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
-
-  desc "Submit a new Beta Build to Crashlytics Beta"
+  desc "Sowell Custom Lane"
   lane :beta do
-    gradle(task: "clean assembleRelease")
-  end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
+    gradle(task: "clean assembleRelease",project_dir: "src-capacitor/android")
   end
 end
